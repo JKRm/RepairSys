@@ -1,0 +1,67 @@
+a {
+	color: black;
+	text-decoration: none;
+	font-size: 90%;
+}
+li {
+	list-style: none;
+	background: url(../image/file.png) 0 center no-repeat;
+	padding-left: 22px;
+}
+li .time {
+	color: green;
+	font-size: 80%;
+	margin-left: 20px;
+}
+#noticeContent {
+	width: 1000px;
+	height: 560px;
+	overflow-y: auto;
+	border: 1px solid green;
+	margin: 10px auto 0 auto;
+	padding: 0px 10px 5px 10px;
+	font-size: 14px;
+}
+#noticeContent .title {
+	color: white;
+	background: green;
+	height: 40px;
+	line-height: 40px;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+	margin-top: 5px;
+}
+li.xls, li.xlsm, li.xlsx {
+	background: url(../image/xls.png) no-repeat 0 center;
+}
+li.pdf {
+	background: url(../image/pdf.png) no-repeat 0 center;
+}
+li.doc, li.docx {
+	background: url(../image/doc.png) no-repeat 0 center;
+}
+li.ppt, li.pptx {
+	background: url(../image/ppt.png) no-repeat 0 center;
+}
+li.mp3, li.wpm {
+	background: url(../image/audio.png) no-repeat 0 center;
+}
+li.mp4, li.rmvb, li.avi {
+	background: url(../image/video.png) no-repeat 0 center;	
+}
+li.jar, li.rar, li.zip, li.tar {
+	background: url(../image/rar.png) no-repeat 0 center;
+}
+#detail p {
+	text-indent: 2em;
+}
+.publish_time {
+	text-align: center;
+	color: gray;
+	font-size: 85%;
+}
+#fileList {
+	background: rgb(225, 225, 225);
+	padding: 10px;
+} 

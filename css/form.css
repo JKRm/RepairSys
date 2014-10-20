@@ -1,0 +1,53 @@
+	body {
+		padding: 10px;
+	}
+    select {
+		float: left;
+		width: 168px;
+		height: 23px;
+		color: green;
+		border: 1px solid rgb(220, 220, 220);
+	}
+	#maingrid4 select {
+		width: 50px !important;
+	}
+	p {
+		clear: both;
+	}
+	.text {
+		float: left;
+	}
+	.title {
+		margin-top: 13px;
+		margin-left: 7px;
+		padding-left: 6px;
+		padding-bottom: 2px;
+		border-bottom: 1px solid rgb(230, 230, 230);
+	}
+	.title span {
+		font-weight: bold;
+	}
+	.content {
+		margin-top: 13px;
+		margin-left: 7px;
+		line-height: 30px;
+	}
+	.content label {
+		float: left;
+		display: inline-block;
+		text-align: right;
+		width: 80px;
+		margin-right: 10px;
+	}
+	.content .text {
+		width: 168px;
+		height: 23px;
+		color: green;
+		border: 1px solid rgb(220, 220, 220);
+	}
+	.content .readonly {
+		background: rgb(200, 230, 220);
+	}
+	.content .l-button {
+		height: 23px;
+	}

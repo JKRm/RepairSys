@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.multipart.maxSize" value="209715200" />
+	
+	<package name="login" extends="struts-default" namespace="/login">
+		<action name="LoginAction" class="stcm.repair.action.LoginAction"
+			method="execute">
+			<result name="success">/index.jsp</result>
+		</action>
+
+		<action name="LogoutAction" class="stcm.repair.action.LoginAction"
+			method="logOut">
+			<result name="success">/index.jsp</result>
+		</action>
+
+		<action name="LoginAjaxAction" class="stcm.repair.action.LoginAction"
+			method="ajax">
+			<result name="success" type="stream">
+				<!-- 指定下载文件的文件类型 -->
+				<param name="contentType">text/html</param>
+				<!-- 指定由getResult方法返回输出结果的InputStream -->
+				<param name="inputName">result</param>
+			</result>
+		</action>
+	</package>
+
+	<package name="staffinfo" extends="struts-default" namespace="/staffinfo">
+		<action name="StaffAction" class="stcm.repair.action.BasicInformationAction"
+			method="execute">
+			<result name="success">/staffInfo/Info.jsp</result>
+		</action>
+
+		<action name="ModifyPswAction" class="stcm.repair.action.BasicInformationAction"
+			method="modpsw">
+			<result name="success" type="stream">
+				<!-- 指定下载文件的文件类型 -->
+				<param name="contentType">text/html</param>
+				<!-- 指定由getResult方法返回输出结果的InputStream -->
+				<param name="inputName">result</param>
+			</result>
+		</action>
+	</package>
+
+	<package name="repair" extends="struts-default" namespace="/repair">
+		<action name="RepairAction" class="stcm.repair.action.RepairProjectAction"
+			method="execute">
+			<result>/repairpro/searchbByRno.jsp</result>
+		</action>
+
+		<action name="RepairStateAction" class="stcm.repair.action.RepairProjectAction"
+			method="executestate">
+			<result>/repairpro/searchbByState.jsp</result>
+		</action>
+
+		<action name="RepairTimeAction" class="stcm.repair.action.RepairProjectAction"
+			method="executetime">
+			<result>/repairpro/searchbByTime.jsp</result>
+		</action>
+
+		<action name="RepairLocationAction" class="stcm.repair.action.RepairProjectAction"
+			method="executelocation">
+			<result>/repairpro/searchbByLocation.jsp</result>
+		</action>
+
+		<action name="ReportSingleAction" class="stcm.repair.action.RepairProjectAction"
+			method="serchReportByRno">
+			<result>/repairpro/reportSingle.jsp</result>
+		</action>
+
+		<action name="ContentAction" class="stcm.repair.action.RepairProjectAction"
+			method="comment">
+			<result name="success" type="stream">
+				<!-- 指定下载文件的文件类型 -->
+				<param name="contentType">text/html</param>
+				<!-- 指定由getResult方法返回输出结果的InputStream -->
+				<param name="inputName">result</param>
+			</result>
+		</action>
+
+		<action name="DeleteAction" class="stcm.repair.action.RepairProjectAction"
+			method="delete">
+			<result name="success" type="stream">
+				<!-- 指定下载文件的文件类型 -->
+				<param name="contentType">text/html</param>
+				<!-- 指定由getResult方法返回输出结果的InputStream -->
+				<param name="inputName">result</param>
+			</result>
+		</action>
+	</package>
+
+	<package name="ReportAddtion" extends="struts-default"
+		namespace="/report">
+		<action name="AddReportAction" class="stcm.repair.action.AddReportAction" method="execute">
+		<result type="stream">
+        		<param name="contentType">text/html</param>
+        		<param name="inputName">inputStream</param>
+    		</result>
+		</action>
+		
+		<action name="GetInfoAction" class="stcm.repair.action.GetInfoAction"
+			method="execute">
+			<result name="success">/ReportInfo/ReportAddition.jsp</result>
+		</action>
+		
+		<action name="JsonAction" class="stcm.repair.action.JsonAction"
+			method="execute">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+
+		<action name="Json4roomAction" class="stcm.repair.action.JsonAction"
+			method="execute4room">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+
+		<action name="Json4categoryAction" class="stcm.repair.action.JsonAction"
+			method="execute4supplies">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+
+		<action name="ReportApprovalAction" class="stcm.repair.action.ReportApprovalAction"
+			method="execute">
+			<result name="success">/ReportInfo/ReportApproval.jsp</result>
+		</action>
+
+		<action name="ApprovalUpdateAction" class="stcm.repair.action.ReportApprovalAction" method="update">
+	   		<result type="stream">
+	        	<param name="contentType">text/html</param>
+	        	<param name="inputName">inputStream</param>
+	    	</result>
+		</action>
+		
+	</package>
+	
+	<package name="total" extends="struts-default" namespace="/total">
+		
+		<action name="TotalSuppliesAction" class="stcm.repair.action.TotalBySuppliesAction"
+			method="execute">
+			<result name="success">/total/totalSupplies.jsp</result>
+		</action>
+
+		<action name="TotalRepairAction" class="stcm.repair.action.TotalByRepairAction"
+			method="execute">
+			<result name="success">/total/totalRepair.jsp</result>
+		</action>
+
+	</package>
+	
+	<package name="SuppliesInfo" extends="struts-default" namespace="/supplies">
+		<action name="suppliesAction" class="stcm.repair.action.SuppliesAction" method="execute">
+   			 <result name="success">/SuppliesInfo/SuppliesOperation.jsp</result>
+		</action>
+		<action name="suppliesUpdateAction" class="stcm.repair.action.SuppliesAction" method="update">
+   			 <result name="success" type="stream">
+   			 	<param name="contentType">text/html</param>
+   			 	<param name="inputName">inputStream</param>
+   			 </result>
+		</action>
+		<action name="suppliesDelAction" class="stcm.repair.action.SuppliesAction" method="delete">
+   			 <result name="success" type="stream">
+   			 	<param name="contentType">text/html</param>
+   			 	<param name="inputName">inputStream</param>
+   			 </result>
+		</action>
+		<action name="suppliesAddAction" class="stcm.repair.action.SuppliesAction" method="add">
+   			 <result name="success" type="stream">
+   			 	<param name="contentType">text/html</param>
+   			 	<param name="inputName">inputStream</param>
+   			 </result>
+		</action>
+	</package>	
+	
+	<package name="ExpenseInfo" extends="struts-default" namespace="/expense">
+
+		<action name="confirmAction" class="stcm.repair.action.ExpenseConfirmAction" method="execute">
+   			 <result type="stream">
+        		<param name="contentType">text/html</param>
+        		<param name="inputName">inputStream</param>
+    		</result>
+		</action>
+		
+		<action name="updateAction" class="stcm.repair.action.ExpenseConfirmAction" method="updateState">
+   			  <result name="success" type="stream">
+   			 	<param name="contentType">text/html</param>
+   			 	<param name="inputName">inputStream</param>
+   			 </result>
+		</action>
+		
+		<action name="searchAction" class="stcm.repair.action.ExpenseSearchAction" method="execute">
+   			 <result name="success">/ExpenseInfo/ExpenseSearch.jsp</result>
+		</action>
+		
+		<action name="JsonAction" class="stcm.repair.action.ExpenseSearchAction" method="execute4supplies">
+   			 <result type="stream">
+        		<param name="contentType">text/html</param>
+        		<param name="inputName">inputStream</param>
+    		</result>
+		</action>
+		
+		<action name="doSearchAction" class="stcm.repair.action.ExpenseSearchAction" method="search">
+   			 <result type="stream">
+        		<param name="contentType">text/html</param>
+        		<param name="inputName">inputStream</param>
+    		</result>
+		</action>
+	</package>
+	
+	<package name="locationinfo" extends="struts-default" namespace="/locationinfo">
+		<action name="areaAction" class="stcm.repair.action.AreaAction" method="getSno">
+			<result name="success" type="stream">
+   			 	<param name="contentType">text/html</param>
+   			 	<param name="inputName">inputStream</param>
+   			 </result>
+		</action>
+		
+		<action name="buildingAction" class="stcm.repair.action.BuildingAction" method="getSno">
+			<result name="success" type="stream">
+   			 	<param name="contentType">text/html</param>
+   			 	<param name="inputName">inputStream</param>
+   			 </result>
+		</action>
+		
+		<action name="roomAction" class="stcm.repair.action.RoomAction" method="getSno">
+			<result name="success" type="stream">
+   			 	<param name="contentType">text/html</param>
+   			 	<param name="inputName">inputStream</param>
+   			 </result>
+		</action>
+		
+		<action name="SetNewAction" class="stcm.repair.action.AreaAction" method="setNew">
+			<result name="success" type="stream">
+   			 	<param name="contentType">text/html</param>
+   			 	<param name="inputName">inputStream</param>
+   			 </result>
+		</action>
+		
+		<action name="SetNewbAction" class="stcm.repair.action.BuildingAction" method="setNew">
+			<result name="success" type="stream">
+   			 	<param name="contentType">text/html</param>
+   			 	<param name="inputName">inputStream</param>
+   			 </result>
+		</action>
+		
+		<action name="SetNewlAction" class="stcm.repair.action.RoomAction" method="setNew">
+			<result name="success" type="stream">
+   			 	<param name="contentType">text/html</param>
+   			 	<param name="inputName">inputStream</param>
+   			 </result>
+		</action>
+		
+		<action name="infoAction" class="stcm.repair.action.AreaAction" method="execute">
+			<result name="success">/LocationInfo/Area.jsp</result>
+		</action>
+		
+		<action name="infobAction" class="stcm.repair.action.BuildingAction" method="execute">
+			<result name="success">/LocationInfo/Building.jsp</result>
+		</action>
+		
+		<action name="infolAction" class="stcm.repair.action.RoomAction" method="execute">
+			<result name="success">/LocationInfo/Location.jsp</result>
+		</action>
+	</package>
+	
+	<package name="comment" extends="struts-default" namespace="/comment">
+		<action name="ShowCommentAction" class="stcm.repair.action.CommentAction" method="showList">
+			<result>/comment/comment.jsp</result>
+		</action>
+		
+		<action name="DeleteCommentAction" class="stcm.repair.action.CommentAction" method="execute">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="maintenance" extends="struts-default" namespace="/maintenance">
+		<action name="ShowListAction" class="stcm.repair.action.MaintenanceAction" method="showList">
+			<result>/maintenance/maintenance.jsp</result>
+		</action>
+		
+		<action name="UpdateAction" class="stcm.repair.action.MaintenanceAction" method="execute">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="report" extends="struts-default" namespace="/report">
+		<action name="ShowListAction" class="stcm.repair.action.ReportAction" method="execute">
+			<result>/report/reports.jsp</result>
+		</action>
+		
+		<action name="UpdateAction" class="stcm.repair.action.ReportAction" method="updateState">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		<action name="DeleteAction" class="stcm.repair.action.ReportAction" method="delete">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="ManageNotice" extends="struts-default" namespace="/admin/notice">
+		<action name="AddNotice" class="stcm.repair.action.NoticeAction" method="add">
+			<param name="savePath">/file</param>
+			<result name="addSuccess">/admin/notice/success.jsp</result>
+			<result name="addError">/admin/notice/error.jsp</result>
+			<result name="input">/admin/notice/add.jsp</result>
+			<interceptor-ref name="fileUpload">
+				<param name="maximumSize">200000000</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="get" class="stcm.repair.action.NoticeAction" method="get">
+			<result name="success">/admin/notice/notice.jsp</result>
+		</action>
+		<action name="read" class="stcm.repair.action.NoticeAction" method="read">
+			<result name="success">/notice/notice.jsp</result>
+		</action>
+		<action name="edit" class="stcm.repair.action.NoticeAction" method="edit">
+			<result name="success">/admin/notice/edit.jsp</result>
+		</action>
+		<action name="save" class="stcm.repair.action.NoticeAction" method="save">
+			<param name="savePath">/file</param>
+			<result name="success">/admin/notice/success.jsp</result>
+			<result name="error">/admin/notice/error.jsp</result>
+			<interceptor-ref name="fileUpload">
+				<param name="maximumSize">200000000</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="getList" class="stcm.repair.action.NoticeAction" method="getList">
+			<result name="success">/admin/notice/notices.jsp</result>
+		</action>
+		<action name="getNotices" class="stcm.repair.action.NoticeAction" method="getNotices">
+			<result name="success">/notice/notices.jsp</result>
+		</action>
+		<action name="delAttachment" class="stcm.repair.action.NoticeAction" method="delAttachment">
+			<param name="savePath">/file</param>
+			<result name="success">/admin/notice/success.jsp</result>
+		</action>
+		<action name="delete" class="stcm.repair.action.NoticeAction" method="delete">
+			<param name="savePath">/file</param>
+			<result name="success">/admin/notice/success.jsp</result>
+		</action>
+	</package>
+	
+	<package name="ManageStaff" extends="struts-default" namespace="/admin/staff">
+		<action name="getStaffs" class="stcm.repair.action.StaffAction" method="getStaffs">
+			<result name="success">/admin/staff/Staffs.jsp</result>
+		</action>
+		<action name="save" class="stcm.repair.action.StaffAction" method="save">
+			<result name="success" type="stream">
+   			 	<param name="contentType">text/html</param>
+   			 	<param name="inputName">inputStream</param>
+   			 </result>
+		</action>
+		<action name="DeleteAction" class="stcm.repair.action.StaffAction" method="delete">
+			<result name="success" type="stream">
+   			 	<param name="contentType">text/html</param>
+   			 	<param name="inputName">inputStream</param>
+   			 </result>
+		</action>
+	</package>
+	
+</struts>    
